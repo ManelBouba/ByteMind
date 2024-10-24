@@ -1,5 +1,5 @@
 #define two classes table and seat
-class Seat: #class seat with two attributes
+class Seat: #class seat with two attributes and two methods
     
     def __init__(self):
       self.free=True # the seat is free 
@@ -25,11 +25,11 @@ class Seat: #class seat with two attributes
       else:
         return None
       
-class table: #class table 
+class table: #class table with two attributes and three methods
   def __init__(self,capacity):
     self.capacity=capacity
     self.seats=[Seat() for i in range(capacity)]
-    """"""
+    """Returns True if there is at least one free seat at the table; otherwise, returns False."""
   def has_free_spot(self):
      return any(seat.free for seat in self.seats)
   """ places someone at the table"""
