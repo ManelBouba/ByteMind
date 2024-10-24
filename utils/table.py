@@ -1,12 +1,13 @@
-#define two classes table and seat
-class Seat: #class seat with two attributes and two methods
+# define two classes table and seat
+
+# class seat with two attributes and two methods
+class Seat: 
     
     def __init__(self):
       self.free=True # the seat is free 
       self.occupant="" # no occupant 
 
-      """Assigns an occupant to the seat if it's free;
-      returns True if successful, False if occupied."""
+    """Assigns an occupant to the seat if it's free; returns True if successful, False if occupied."""
     def set_occupant(self,name):
       if self.free:
         self.occupant= name
@@ -15,8 +16,7 @@ class Seat: #class seat with two attributes and two methods
       else:
         return False
       
-      """Removes the occupant from the seat if occupied;
-        returns the occupant's name or None if already free."""
+    """Removes the occupant from the seat if occupied; returns the occupant's name or None if already free."""
     def remove_occupant(self):
       if not self.free:
         prior_occupant = self.occupant
@@ -26,12 +26,13 @@ class Seat: #class seat with two attributes and two methods
       else:
         return None
       
-class table: #class table with two attributes and three methods
+#class table with two attributes and three methods
+class table: 
   def __init__(self,capacity):
     self.capacity=capacity
     self.seats=[Seat() for i in range(capacity)]
 
-    """Returns True if there is at least one free seat at the table; otherwise, returns False."""
+  """Returns True if there is at least one free seat at the table; otherwise, returns False."""
   def has_free_spot(self):
      return any(seat.free for seat in self.seats)
   
