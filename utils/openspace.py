@@ -30,7 +30,7 @@ class Openspace:
             print(f"Table {i}:")
             for seat in table.seats:
                 occupant = seat.occupant if seat.occupant != "" else "empty"
-                print(f"Seat: {occupant}")
+                print (f"Seat: {occupant}")
 
     def store(self, filename):
         #Stores the seating arrangement into an Excel file.

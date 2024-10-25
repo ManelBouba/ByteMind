@@ -1,10 +1,21 @@
+import json
 from openspace import Openspace
 from file_utils import List, check_capacity  # Ensure these match exactly with file_utils
 from table import Table, Seat
 
 # Configuration
-number_of_tables = 6
-seats_per_table = 4
+user = input("Hello! Welcome to ByteMind.\n Would you like to setup a cutom seating (c)\n or use our default(d)?\n (press (d) for default or (c) for custom: ").lower()
+if user == "d":
+    with open("config.json", "r") as config_file:
+        config = json.load(config_file)
+        number_of_tables = config["number_of_tables"]
+        seats_per_table = config["seats_per_table"]
+
+else:
+    number_of_tables = int(input("Please enter the number of tables:"))
+    seats_per_table = int(input("Please enter the number of seats:"))
+
+
 
 # Load names from Excel
 names_list_extract = List()
@@ -17,7 +28,7 @@ print(capacity_message)
 # Initialize Openspace with tables and seats configuration
 openspace = Openspace(number_of_tables, seats_per_table)
 
-# Organize seating for the provided names
+# Organize seating for the provided namesd
 openspace.organize(names)
 
 # Display seating arrangement in console
