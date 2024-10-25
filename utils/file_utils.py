@@ -17,7 +17,7 @@ def check_capacity(number_of_tables, seats_per_table,name):
     capacity = number_of_tables * seats_per_table
 
     if capacity < len(name):
-        return "Too many people for the available seats."
+        return f"There are {len(name)} people"
     elif capacity > len(name):
         left_over = capacity - len(name)
         return f"There are {left_over} seats available."

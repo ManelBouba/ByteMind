@@ -24,6 +24,7 @@ class Openspace:
                 else:
                     seat.occupant = "empty"  # Mark remaining seats as empty
 
+    
     def display(self):
         """Display the seating arrangement."""
         print("\n-+-+-+- SEATING ARRANGEMENT -+-+-+-+-+-\n")
@@ -59,3 +60,4 @@ class Openspace:
         """Add a new table to the open space."""
         self.tables.append(Table(self.seats_per_table))
         print("A new table has been added.")
+ 

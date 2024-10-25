@@ -19,7 +19,9 @@ else:
 
 # Load names from Excel
 names_list_extract = List()
-names = names_list_extract.names_list(r"C:\Users\pc click\Desktop\ByteMind\bouman_8.xlsx")
+#names = names_list_extract.names_list(r"C:\Users\pc click\Desktop\ByteMind\bouman_8.xlsx")
+names = names_list_extract.names_list(r"C:\Users\pc click\Desktop\ByteMind\bouman_8 - Short_list.xlsx")
+
 
 # Check capacity to ensure the seating arrangement can be accommodated
 capacity_message=check_capacity(number_of_tables, seats_per_table, names)
@@ -36,6 +38,6 @@ openspace.display()
 # Store the seating arrangement in an Excel file
 openspace.store(r"C:\Users\pc click\Desktop\ByteMind\seating_arrangement.xlsx")
 #add new colleague
-openspace.add_colleague("New Colleague Name")
+openspace.add_colleague(input("New Colleague Name"))
 #add new table
 openspace.add_table()
