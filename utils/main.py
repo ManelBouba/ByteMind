@@ -1,35 +1,27 @@
 from openspace import Openspace
-from file_utils import List
-from table import Table ,Seat
+from file_utils import List, check_capacity  # Ensure these match exactly with file_utils
+from table import Table, Seat
 
-number_of_tables=6
-seats_per_table=4
+# Configuration
+number_of_tables = 6
+seats_per_table = 4
 
- # Load names from Excel
-names_list_extract=List()
-names= names_list_extract.names_list(r"C:\Users\pc click\Desktop\ByteMind\bouman_8 - Short_list.xlsx")
-#names= names_list_extract.names_list(r"C:\Users\pc click\Desktop\ByteMind\bouman_8.xlsx")
+# Load names from Excel
+names_list_extract = List()
+names = names_list_extract.names_list(r"C:\Users\pc click\Desktop\ByteMind\bouman_8 - Short_list.xlsx")
 
+# Check capacity to ensure the seating arrangement can be accommodated
+capacity_message=check_capacity(number_of_tables, seats_per_table, names)
+print(capacity_message)
 
-capacity=number_of_tables* seats_per_table
-
-if capacity < len(names):
-     print("too much people")
-elif capacity >len(names):
-      left_over = capacity - len(names)
-      print (f"There are {left_over} seats available")
-else:
-      print("all the seats are occupid")
-
-
-# Initialize Openspace with 6 tables, each with 4 seatsls
+# Initialize Openspace with tables and seats configuration
 openspace = Openspace(number_of_tables, seats_per_table)
 
-# Organize seating
+# Organize seating for the provided names
 openspace.organize(names)
 
-# Display seating arrangement
+# Display seating arrangement in console
 openspace.display()
 
-# Store seating arrangement in an Excel file
+# Store the seating arrangement in an Excel file
 openspace.store(r"C:\Users\pc click\Desktop\ByteMind\seating_arrangement.xlsx")
