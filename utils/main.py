@@ -26,7 +26,6 @@ names = names_list_extract.names_list(r"C:\Users\pc click\Desktop\ByteMind\bouma
 # Check capacity to ensure the seating arrangement can be accommodated
 capacity_message=check_capacity(number_of_tables, seats_per_table, names)
 print(capacity_message)
-
 # Initialize Openspace with tables and seats configuration
 openspace = Openspace(number_of_tables, seats_per_table)
 
