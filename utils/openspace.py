@@ -43,3 +43,16 @@ class Openspace:
         df = pd.DataFrame(data, columns=['Table', 'Occupant'])
         df.to_excel(filename, index=False)
         return f"Seating arrangement saved to {filename}"
+    
+    def add_colleague(self, name):
+        """Add a new colleague if there's room."""
+        if any(table.has_free_spot() for table in self.tables):
+            self.organize([name])
+            print(f"{name} has been added.")
+        else:
+            print("No seats available! Please add a table.")
+
+    def add_table(self):
+        """Add a new table to the open space."""
+        self.tables.append(Table(self.seats_per_table))
+        print("A new table has been added.")

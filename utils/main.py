@@ -36,3 +36,7 @@ openspace.display()
 
 # Store the seating arrangement in an Excel file
 openspace.store(r"C:\Users\pc click\Desktop\ByteMind\seating_arrangement.xlsx")
+#add new colleague
+openspace.add_colleague("New Colleague Name")
+#add new table
+openspace.add_table()
