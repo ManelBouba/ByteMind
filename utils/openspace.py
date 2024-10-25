@@ -56,8 +56,11 @@ class Openspace:
             print(f"{name} has been added and seating rearranged.")
         else:
             print("No seats available! Consider adding a table.")
+
     def add_table(self):
-        """Add a new table to the open space."""
+       """Add a new table to the open space only if there are no empty seats."""
+       if not any(table.has_free_spot() for table in self.tables):
         self.tables.append(Table(self.seats_per_table))
         print("A new table has been added.")
- 
+       else:
+        print("Cannot add a new table: There are still empty seats available.")
