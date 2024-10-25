@@ -2,13 +2,6 @@ from table import Table
 import random
 import pandas as pd
 
-def names_list(file_path):
-    df = pd.read_excel(file_path)
-    return df.iloc[:, 0].tolist()
-
-# Load names from Excel
-names = names_list(r"C:\Users\pc click\Desktop\ByteMind\bouman_8.xlsx")
-
 class Openspace:
     def __init__(self, number_of_tables, seats_per_table):
         """Initializes the Openspace class with tables and seats per table."""
@@ -39,7 +32,7 @@ class Openspace:
                 occupant = seat.occupant if seat.occupant != "" else "empty"
                 print(f"Seat: {occupant}")
 
-    """def store(self, filename):
+    def store(self, filename):
         #Stores the seating arrangement into an Excel file.
         data = []
         for i, table in enumerate(self.tables, 1):
@@ -49,5 +42,4 @@ class Openspace:
         
         df = pd.DataFrame(data, columns=['Table', 'Occupant'])
         df.to_excel(filename, index=False)
-        print(f"Seating arrangement saved to {filename}")
-"""
+        return f"Seating arrangement saved to {filename}"
