@@ -19,7 +19,7 @@ else:
 
 # Load names from Excel
 names_list_extract = List()
-names = names_list_extract.names_list(r"C:\Users\pc click\Desktop\ByteMind\bouman_8 - Short_list.xlsx")
+names = names_list_extract.names_list(r"C:\Users\pc click\Desktop\ByteMind\bouman_8.xlsx")
 
 # Check capacity to ensure the seating arrangement can be accommodated
 capacity_message=check_capacity(number_of_tables, seats_per_table, names)
@@ -30,7 +30,6 @@ openspace = Openspace(number_of_tables, seats_per_table)
 
 # Organize seating for the provided namesd
 openspace.organize(names)
-
 # Display seating arrangement in console
 openspace.display()
 

@@ -7,6 +7,8 @@ class Openspace:
         """Initializes the Openspace class with tables and seats per table."""
         self.number_of_tables = number_of_tables
         self.tables = [Table(seats_per_table) for _ in range(number_of_tables)]
+        self.seats_per_table = seats_per_table 
+        self.colleagues=[]
 
     def organize(self, names):
         """Randomly assign people to seats across tables."""
@@ -45,13 +47,14 @@ class Openspace:
         return f"Seating arrangement saved to {filename}"
     
     def add_colleague(self, name):
-        """Add a new colleague if there's room."""
-        if any(table.has_free_spot() for table in self.tables):
-            self.organize([name])
-            print(f"{name} has been added.")
-        else:
-            print("No seats available! Please add a table.")
+        """Adds a new colleague dynamically if there's an available seat or suggests adding a table."""
+        self.colleagues.append(name)
 
+        if any(table.has_free_spot() for table in self.tables):
+            self.organize(self.colleagues)
+            print(f"{name} has been added and seating rearranged.")
+        else:
+            print("No seats available! Consider adding a table.")
     def add_table(self):
         """Add a new table to the open space."""
         self.tables.append(Table(self.seats_per_table))
