@@ -27,7 +27,7 @@ class Seat:
         return None
       
 #class table with two attributes and three methods
-class table: 
+class Table: 
   def __init__(self,capacity):
     self.capacity=capacity
     self.seats=[Seat() for i in range(capacity)]
