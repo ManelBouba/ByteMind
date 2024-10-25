@@ -4,8 +4,8 @@
 class Seat: 
     
     def __init__(self):
-      self.free=True # the seat is free 
-      self.occupant="" # no occupant 
+      self.free : bool =True # the seat is free 
+      self.occupant: str ="" # no occupant 
 
     """Assigns an occupant to the seat if it's free; returns True if successful, False if occupied."""
     def set_occupant(self,name):
