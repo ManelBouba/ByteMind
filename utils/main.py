@@ -6,7 +6,7 @@ from table import Table, Seat
 # Configuration
 user = input("Hello! Welcome to ByteMind.\n Would you like to setup a cutom seating (c)\n or use our default(d)?\n (press (d) for default or (c) for custom: ").lower()
 if user == "d":
-    with open("config.json", "r") as config_file:
+    with open("./ByteMind/utils/config.json", "r") as config_file:
         config = json.load(config_file)
         number_of_tables = config["number_of_tables"]
         seats_per_table = config["seats_per_table"]
@@ -20,7 +20,7 @@ else:
 # Load names from Excel
 names_list_extract = List()
 #names = names_list_extract.names_list(r"C:\Users\pc click\Desktop\ByteMind\bouman_8.xlsx")
-names = names_list_extract.names_list(r"C:\Users\pc click\Desktop\ByteMind\bouman_8 - Short_list.xlsx")
+names = names_list_extract.names_list('./ByteMind/bouman_8 - Short_list.xlsx')
 
 
 # Check capacity to ensure the seating arrangement can be accommodated
@@ -35,7 +35,7 @@ openspace.organize(names)
 openspace.display()
 
 # Store the seating arrangement in an Excel file
-openspace.store(r"C:\Users\pc click\Desktop\ByteMind\seating_arrangement.xlsx")
+openspace.store("./ByteMind/seating_arrangement.xlsx")
 #add new colleague
 openspace.add_colleague(input("New Colleague Name"))
 #add new table
